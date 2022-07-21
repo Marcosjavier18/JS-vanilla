@@ -1,0 +1,4 @@
+linkeamos el css y el archivo js.
+luego agregamos los diferentes elementos
+primero el grid y todos los botones y funciones de la calculadora 
+luego los vamos a editar en CSS
