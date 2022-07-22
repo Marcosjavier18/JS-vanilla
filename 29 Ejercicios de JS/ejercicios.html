@@ -10,7 +10,16 @@
 <body>
   <h1>Ejercicios de Programación en JavaScript</h1>
   <script>
+
+
+
+
+
+
+    
     /* 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFunción("Hola Mundo") devolverá 10 */
+
+
  /* function contarCaracteres(cadena=""){
     if(!cadena){
       console.warn("No ingresaste ninguna cadena");
@@ -29,70 +38,345 @@ const contarCaracteres = (cadena = "") =>
 
 
 
+
+
+
+
     /* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFunción("Hola Mundo", 4) devolverá "Hola" */
 
-  const recortarTexto = (cadena ="", longitud = undefined) =>
+  /* const recortarTexto = (cadena ="", longitud = undefined) =>
     (!cadena)
      ?console.warn("No ingresaste una cadena de texto")
      :(longitud === undefined)
       ?console.warn("No ingresaste una cadena de texto")
       :console.info(cadena.slice(0,longitud)
-     );
+     ); */
 
   /*   recortarTexto("HOla muuundo",10);
      recortarTexto();
      recortarTexto("Hola Hola");
      recortarTexto("", 56 ); */
      
-     
+
+
+
+
+
+
+
 
 
     /* 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe.
      miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'] */
 
 
+    const cadenaAArreglo = (cadena = "", separador=undefined) =>
+      (!cadena)
+    ?console.warn("No ingresaste una cadena de texto")
+    :(separador === undefined)
+     ?console.warn("No ingresaste una cadena de texto")
+     :console.info(cadena.split(separador));
+
+  /*   cadenaAArreglo('hola que tal aasdasd asd asd asd asd asd asd asd dfdf sdf asd fdasf asd fasd fsd', ' ');
+     cadenaAArreglo("Ene,feb,mar,abr,mayo,jun,jul,ago,sep,oct,nov,dic", ",")
+     cadenaAArreglo()
+     cadenaAArreglo("Hola Mundo");
+     cadenaAArreglo("","-");  */
+
+
+
+
+
+
+
+
 
     /* 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo */
 
 
+    const repetirTexto = ( texto = "", veces=undefined) =>{
+    if(!texto) return console.warn("No ingresaste un texto") //Son validaciones
+    
+    if(veces === undefined) return console.warn("No ingresaste el numero de veces a repetir")
+    ;
+     if(veces === 0) return console.error("el numero de veces no puede ser 0")
+    ;
+    if(Math.sign(veces)===-1)console.error("el numero de veces no puede ser negativo");
+    
+    for(let i=1; i <= veces ; i++)console.info(`${texto},${i}`); //Se resuelve solo con esto.
+    
+  }
+ /* repetirTexto("Hola Mundo", 3);
+  repetirTexto("Hola Mundo", 0);
+  repetirTexto("Hola Mundo", -20);
+  repetirTexto("", 3);
+  repetirTexto("Hola Mundo"); */
+
+
+ /* const chato = ("Hola mundo");
+  console.log(`"Se repite 3 veces":${chato.repeat(3)}`); 
+  */
 
     /* 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH" */
 
 
+    const invertirCadena = ( cadena = "") => 
+       (!cadena)
+        ?console.war("No ingresaste nada")
+        :console.info(cadena.split("").reverse().join(""));
+   
+     /*   invertirCadena("Hola Mundo");
+        invertirCadena();
+        invertirCadena("Loremasdddddddddddddddddddddddddddasd123124515155513411");
+     */
+
+
+
+
+
+
+
 
     /* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2 */
+//vamos a necesitar 2 parametros.
+    const contadorPalabra = ( cadena = "", texto = "" ) => {
+        if(!cadena) return console.warn("No ingresaste un texto largo");
+
+        if(!texto) return console.warn("No ingresaste la palabra a evaluar");
+
+        let i=0,
+        contador=0;
+
+        while(i!==-1){ //Cuando indexof no encuentra el texto en otro, devuelve -1, si lo encuentra nos pone en posicion y nos devuelve el numero
+            i = cadena.indexOf(texto,i); //cuando no detecta el texto, devuelve el -1
+            if(i !== -1){
+                i++;
+                contador++; //significa que ya encontramos el valor una vez
+            }
+        }
+        return console.info(`La palabra${texto} se repite ${contador} veces`);
+    }
+     
+
+    /* contadorPalabra();
+    contadorPalabra("","hola");
+    contadorPalabra("hola mundo adios mundo");
+    contadorPalabra("hola mundo adios mundo yolo mundo", "mundo"); */
+    
+
+
+
+
+
+
 
 
 
     /* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true */
+    const palindromo = (palabra = "") => {
+      if(!palabra) return console.warn("No ingresaste una palabra o frase")
+    
+      palabra = palabra.toLowerCase(); //transformamos las palabras a minusculas.
+      let alReves = palabra.split("").reverse("").join("")
+      
+      return (palabra===alReves)
+      ? console.info(`Si es palindromo . Palabra original : ${palabra}. Palabra al revez: ${alReves}`)
+      : console.info(`NO es palindromo . Palabra original : ${palabra}. Palabra al revez: ${alReves}`)
+    };
+
+
+   /* palindromo();
+    palindromo("Hola");
+    palindromo("sALas");
+    
 
 
 
     /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5 */
 
 
+        //LO HACEMOS CON UNA FUNCION ANONIMA
+
+    const eliminarPatron = (texto="", patron="") => 
+      (!texto)
+      ?console.warn("No ingresaste un texto")
+      :(!patron)
+        ?console.log("No ingresaste un patron")
+        :console.info(texto.replace(new RegExp(patron,"ig"),""));
+
+   /* eliminarPatron();
+    eliminarPatron("xyz1, xyz2, xyz3, xyz4 y xyz5");
+    eliminarPatron("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+    eliminarPatron("HOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLA","O");
+    eliminarPatron(" HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLAHOLA HOLA","[a-h]");
+
+*/
+
+
+
+
+
+
+
 
     /* 9) Programa una función que obtenga un numero aleatorio entre 501 y 600 */
+
+    const aleatorio = () => console.info(Math.round(Math.random()*100) + 500 );
+    
+   /* aleatorio();
+
+
 
 
 
     /* 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true  */
 
+    const capicua = (numero = 0)=>{
+      if (!numero) console.warn("no ingresaste un numero");
+
+      if(typeof numero !== "number")return console.error(`El valor "${numero}"ingresado , NO es un numero`);
+
+      numero = numero.toString(); //Convertimos numero a string.
+      let alReves = numero.split("").reverse("").join("")
+      
+      return(numero===alReves)
+      ?console.log(`Si es capicua, Numero original ${numero}, numero al revez: ${alReves}`)
+      :console.log(`NO es capicua, Numero original ${numero}, numero al revez: ${alReves}`)
+    }
+
+
+  /*  capicua(2002);
+    capicua(5001);
+    capicua();
+
 
 
     /* 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120 */
+
+    const numeroFactorial = ( numero = undefined) =>{
+      if (!numero)return console.warn("no ingresaste un numero");
+
+      if(typeof numero !== "number")return console.error(`El valor "${numero}"ingresado , NO es un numero`);
+      numero = numero.toString();
+      var n = 0;
+
+      if(numero === 0) return console.error("El numero no puede ser 0");
+
+      if(Math.sign(numero)===-1) return console.error("El numero no puede ser negativo");
+
+      let factorial = 1;
+      for ( let i = numero; i > 1; i--){
+        factorial *= i;
+      }
+      return console.log(`El numero factorial ${numero} es ${factorial} `);
+
+    }
+
+
+   /* numeroFactorial();
+    numeroFactorial(5);
+    numeroFactorial(100);
+    numeroFactorial(-40);
+    numeroFactorial(0);
+
+
+
+
+
 
 
 
     /* 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true */
 
+    const numeroPrimo = ( numero = undefined) => {
+      if (!numero)return console.warn("no ingresaste un numero");
+
+      if(typeof numero !== "number")return console.error(`El valor "${numero}"ingresado , NO es un numero`);
+
+      if(numero === 0) return console.error("El numero no puede ser 0");
+
+      if(numero === 1) return console.error("El numero no puede ser 1");
+
+      if(Math.sign(numero)===-1) return console.error("El numero no puede ser negativo");
+
+      let divisible = false;
+
+      for(let i = 2 ; i < numero ; i++ ){
+        if((numero % i) === 0){
+          divisible = true;
+          break;
+          }
+        }
+
+      return(divisible)
+      ?console.log(`El numero ${numero} NO ES PRIMO`)
+      :console.log(`El numero ${numero} si ES PRIMO`)
+    }
+
+  /*  numeroPrimo();
+    numeroPrimo(0);
+    numeroPrimo(1);
+    numeroPrimo(320);
+    numeroPrimo("320")
+   numeroPrimo(9); 
+   numeroPrimo(13);
+   numeroPrimo(17);
+   
+
+
+
+
+
 
 
     /* 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar */
 
+    const numeroPar = ( numero = undefined) => {
+      if (!numero)return console.warn("no ingresaste un numero");
+
+      if(typeof numero !== "number")return console.error(`El valor "${numero}"ingresado , NO es un numero`);
+
+      let par = false;
+      
+
+      for(let i = 0 ; i < numero ; i++ ){
+        if((numero % 2) === 0){
+          par = true;
+          break;
+          }
+
+        }
+        return(par)
+        ?console.log(`el numero ${numero} es par`)
+        :console.log(`el numero ${numero} es impar`)
+      }
+      
+    /*  numeroPar(150);
+      numeroPar(151);
+      numeroPar();
+      numeroPar("asd");
+      numeroPar(1995);
+
+
+
+
+
 
 
     /* 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F */
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
