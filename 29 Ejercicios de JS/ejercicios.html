@@ -366,7 +366,40 @@ const contarCaracteres = (cadena = "") =>
     /* 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F */
 
 
-    
+    const convertirGrados = (valor = undefined, unidad= undefined)=>{
+      if(valor === undefined)return console.warn("No ingresaste datos a convertir");
+
+      if(typeof valor !== "number") return console.error(`El valor ingresado no es un numero`);
+
+      if( unidad === undefined) return console.warn("No ingresaste el tipo de grado a convertir");
+
+      if(typeof unidad !== "string") return console.error(`El valor ingresado ${unidad} No es un numero`);
+
+      if(unidad.length!==1||!/(C|F)/.test(unidad)) return console.warn("Valor de unidad no reconocido,");
+      
+      
+      if (unidad==="C"){
+        return console.info(`${valor}°C = ${Math.round((valor*(9/5)) + 32)}°F`);
+    }else if (unidad==="F"){
+        return console.info(`${valor}°F = ${Math.round(((valor-32)*(5/9)))}°C`);
+    }else{
+return console.warn("El tipo de grados a convertir no es valido")
+
+    }
+    }
+
+ /*   convertirGrados();
+    convertirGrados("2");
+    convertirGrados(10);
+    convertirGrados(2,true);
+    convertirGrados(2,"hola");
+    convertirGrados(2,"E");
+    convertirGrados(2,"C");
+    convertirGrados(100, "C");
+    convertirGrados(0, "F");
+    convertirGrados(32, "F");
+    convertirGrados(100, "f");
+
 
 
 
@@ -382,25 +415,231 @@ const contarCaracteres = (cadena = "") =>
 
     /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10 */
 
+    const convertirBinarioDecimal = (numero=undefined, base=undefined) =>{
+      if(numero === undefined)return console.warn("No ingresaste el numero a convertir");
+
+      if(typeof numero !== "number")return console.error(`El valor "${numero}"ingresado , NO es un numero`);
+
+      if( base === undefined) return console.warn("No ingresaste el tipo de grado a convertir");
+
+      if(typeof base !== "number") return console.error(`El valor ingresado ${base} No es un numero`);
+
+
+      if ( base === 2){
+        return console.info(`El numero ${numero} base ${base} = ${parseInt(numero,base)} base 10 `);
+      } else if( base === 10){
+        return console.info(`El numero ${numero} base ${base} = ${numero.toString(base)} base 2 `);
+      }  else {
+        return console.error("El tipo de base a convertir NO es valido");
+      }
+    }
+
+ /*   convertirBinarioDecimal();
+    convertirBinarioDecimal("2");
+    convertirBinarioDecimal(100);
+    convertirBinarioDecimal(100, 2);
+    convertirBinarioDecimal(100, "2");
+    convertirBinarioDecimal(1414146, 2);
+    convertirBinarioDecimal(114,10);
+    convertirBinarioDecimal(114,3 )
+
+
+
+
+
+
+
+
+
 
 
     /* 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800 */
+
+    const aplicarDescuento = (monto = undefined, descuento = 0) =>{
+
+      if(monto === undefined)return console.warn("No ingresaste el monto");
+
+      if(typeof monto !== "number")return console.error(`El monto "${monto}"ingresado , NO es un numero`);
+
+      if( monto === 0) return console.warn("El monto no puede ser 0");
+
+      if(typeof descuento !== "number") return console.error(`El valor ingresado ${descuento} No es un numero`);
+      
+      if(Math.sign(descuento)===-1) return console.error("El descuento no puede ser negativo");
+
+      return console.info(`$${monto}-${descuento}% = ${monto - ((monto*descuento)/100)}` )
+
+    }
+
+
+  /*  aplicarDescuento();
+    aplicarDescuento("Hola");
+    aplicarDescuento(0);
+    aplicarDescuento(-1000);
+    aplicarDescuento(100,20);
+    aplicarDescuento(1500,30);
+
+
+
+
+
+
+
 
 
 
     /* 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020) */
 
+    const calcularAnios = (fecha=undefined) => {
+      if(fecha === undefined) return console.warn("no ingresaste la fecha");
+
+      if(!(fecha instanceof Date)) return console.error("El valor que ingresaste no es una fecha valida")
+      ; //cualquier cosa diferente a date
+
+      let hoyMenosFecha = new Date().getTime()-fecha.getTime(), //expresa en milisegundos
+        aniosEnMS = 1000 * 60 * 60 * 24 * 365, //esta es la medida del año, la que necesitamos para la funcion
+        aniosHumanos = Math.floor(hoyMenosFecha/aniosEnMS);
+      /*Floor devuelve el num redondeado hacia el anterior*/
+
+    
+      return (Math.sign(aniosHumanos)===-1)
+       ?console.info(`Faltan ${Math.abs(aniosHumanos)}años para el : ${fecha.getFullYear()}.`)
+        :(Math.sign(aniosHumanos)===1)
+        ?console.info(`Han pasado ${Math.abs(aniosHumanos)}años, desde ${fecha.getFullYear()}.`)
+          :console.info(`Estamos en el año actual ${fecha.getFullYear()}.`)
+          
+        }
+
+  /*  calcularAnios(1996,3,18);
+    calcularAnios();
+    calcularAnios({});
+    calcularAnios(false);
+    calcularAnios(new Date());
+    calcularAnios(new Date(1996,3,18));
+    calcularAnios(new Date(2996,3,18));
+    
+
+
 
 
     /* 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5 */
+
+    const vocalConsonante = (cadena = "")=> {
+      if(!cadena) return console.warn("No ingresaste un texto largo");
+
+      if(typeof cadena !== "string") return console.error(`el valor "${cadena}"ingresado, NO ES CADENA DE TEXTO`);
+
+      let vocales=0,
+        consonantes = 0;
+
+      cadena = cadena.toLocaleLowerCase();
+
+      for(let letra of cadena){
+        if(/[aeiouáä]/.test(letra)) vocales++ ;
+  
+        if(/[bcdfghjklmnñpqrstwxyz]/.test(letra)) consonantes++ ;
+      }
+       return console.info({
+          cadena,
+          vocales,
+          consonantes
+      })
+}
+
+ /*   vocalConsonante();
+    vocalConsonante(3);
+    vocalConsonante("Hola Mundo");
+    vocalConsonante(asdasd);
+    vocalConsonante("");
+
+
+
+
+
+
+
 
 
 
     /* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero */
 
+    const validarNombre = (nombre="") =>{
+      if(!nombre) return console.warn("No ingresaste un nombre");
+
+      if(typeof nombre !== "string") return console.error(`el valor "${nombre}"ingresado, NO ES CADENA DE TEXTO`);
+      //Podemos agregar á é í y todas esas
+      let expReg = /^[A-Za-zÑñ\s]+$/g.test(nombre);
+
+      return(expReg)
+        ?console.info(`"${nombre}",es un nombre valido`)
+        :console.warn(`"${nombre}", no es un nombre valido`);
+      
+
+    }
+
+    /* validarNombre();
+    validarNombre(3);
+    validarNombre("Hola Marcos");
+    validarNombre("Hola Marcos, 20");
+
 
 
     /* 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero */
+
+
+    const validarEmail = (email="") =>{
+      if(!email) return console.warn("No ingresaste un email");
+
+      if(typeof email !== "string") return console.error(`el valor "${email}"ingresado, NO ES CADENA DE TEXTO`);
+      //Podemos agregar á é í y todas esas
+      let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+
+      return(expReg)
+        ?console.info(`"${email}",es un email valido`)
+        :console.warn(`"${email}", no es un email valido`);
+      
+
+    }
+
+   /* validarEmail();
+    validarEmail(34);
+    validarEmail("Hola Marcos");
+    validarEmail("mar,cucatoo@gmail.com");
+    validarEmail("mjcucatto@gmail.com");
+
+
+
+
+    /* FUSION DEL 19 Y 20 EN UNA SOLA FUNCION*/
+    const validarPatron = (cadena="", patron=undefined) =>{
+      if(!cadena) return console.warn("No ingresaste unaa cadena de texto a evaluar");
+
+      if(typeof cadena !== "string") return console.error(`el valor "${cadena}"ingresado, NO ES CADENA DE TEXTO`);
+      //Podemos agregar á é í y todas esas
+
+      if(patron === undefined) return console.warn("No ingresaste un patron a evaluar")
+
+      if(!(patron instanceof RegExp)) return console.error(`el valor "${patron}" ingresado no es valido`)
+      
+      let expReg = patron.test(cadena);
+
+      return(expReg)
+        ?console.info(`"${cadena}",cumple con el patron ingresado`)
+        :console.warn(`"${cadena}", no cumple con el patron ingresado`);
+      
+
+    }
+
+    validarPatron();
+    validarPatron({});
+    validarPatron("Hola Mundo");
+    validarPatron("Hola Mundo","hola");
+    validarPatron("Hola Mundo",/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/);
+    validarPatron("Hola Mundo",true);
+    validarPatron("marcoscucatto@gmail.com","/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/","i");
+
+    validarPatron("marcos cucatTo 19", /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/);
+
 
 
 
