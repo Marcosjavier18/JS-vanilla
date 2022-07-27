@@ -6,37 +6,47 @@ let x = 0 ,
 
 export function moveBall(e,ball,stage){
     const $ball = d.querySelector(ball),
-     $stage = d.querySelector(stage);
-     console.log(e.keyCode);
-     console.log(e.key);
-    
-    // const move = (direction) => {}
-    
+     $stage = d.querySelector(stage),
+     limitsBall = $ball.getBoundingClientRect(),
+     limitsStage = $stage.getBoundingClientRect();
+    //  console.log(e.keyCode);
+    //  console.log(e.key);
+    //  console.log(limitsBall,limitsStage);
+
+
+    //e.preventDefault();
+    //all elemts tienen 
+    //Si usamos el prevent default fuera del switch , se nos cancelarian todas las funciones del teclado como el Tab que cambia de input en un formulario, por ejemplo
     switch(e.keyCode){
                 case 37:
-                    x--;
-// move("left");
+                    e.preventDefault(); //deshabilitamos los scrolls horizontales y verticales.
+                    if(limitsBall.left > limitsStage.left) x--;
+                        // move("left");
             break;
             case 38:
-                    y--;
-//   move("up"); 
-                break;
-                
-                case 39:
-                    x++;
-//     move("right");
-                    break;
-                    
-                    case 40:
-                        y++;
-//       move("down");
+                e.preventDefault();
+                if(limitsBall.top > limitsStage.top) y--;
+        //   move("up"); 
                         break;
+                        
+                        case 39:
+                            e.preventDefault();
+                            if(limitsBall.right < limitsStage.right) x++;
+        //     move("right");
+                            break;
+                            
+                            case 40:
+                                e.preventDefault(); 
+                                if(limitsBall.bottom < limitsStage.bottom)   y++;
+        //       move("down");
+                                break;
                         
                         
                         default:
                             break;
                         }
-                        $ball.style.transform = `translate(${(x*10)}px , ${(y*10)}px)`;
+
+            $ball.style.transform = `translate(${(x*10)}px , ${(y*10)}px)`;
     }
 //la funcion recibe el evento como tal
 // con esto mas otra tecla podemos hacer shortcut
