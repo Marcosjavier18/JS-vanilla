@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-dark>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
     <title>Menu de Hamburgesa</title>
 </head>
-<body>
+<body data-dark>
 <header class="header">
     <h1>Jugando con DOM</h1>
 </header>
@@ -21,7 +21,7 @@
 <!-- aside es nuestro panel de navegacion, puede haber muchas cosas -->
 <aside class="panel">
     <nav class="menu">
-        <a href="#seccion1">Reloj Digital y Alarma Sonora</a>
+        <a data-dark href="#seccion1">Reloj Digital y Alarma Sonora</a>
         <a href="#seccion2">Eventos del Teclado</a>
         <a href="#seccion3">Cuenta Regresiva.</a>
         <a href="#seccion4">Seccion4</a>
@@ -31,7 +31,7 @@
 <!-- solo puede haber un main por archivo HTML -->
 <main> 
 <section id="seccion1" class="section">
-    <h2>Reloj Digital y Alarma Sonora</h2>
+    <h2 data-dark>Reloj Digital y Alarma Sonora</h2>
     <div id="reloj"></div>
     <div>
         <button id="activar-reloj">Iniciar reloj</button>
@@ -61,7 +61,8 @@
 </main>
 
 
-
+<button class="scroll-top-btn hidden">&#11014</button>
+<button class="dark-theme-btn">🌙</button>
 
 <script src="JS/index_dom.js" type="module"></script>
 </body>

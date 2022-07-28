@@ -4,7 +4,7 @@
     --main-font:sans-serif;
     --font-size:16px;
     --main-color:#f7df1e;
-    --second-color: #222;
+    --second-color: white;
     --main-modal-color: rgba(247,222,30,0.85);
     --second-modal-color: rgba(34,34,34,0.85);
     --container-width: 1200px;   
@@ -102,7 +102,8 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--main-color) !important;
+    background: rgb(175,27,8);
+    background: linear-gradient(283deg, rgba(175,27,8,1) 24%, rgba(31,9,121,1) 75%) !important;
  }
 
 
@@ -144,4 +145,69 @@ img{
     height: 4rem;
     border-radius: 50%;
     background-color: green;
+}
+
+/* ************* FIN EVENTO TECLADO **************** */
+
+
+/* **************** SCROLLTOPBUTTON ********************************* */
+.scroll-top-btn{
+    right: calc(4.60rem + 1vw);
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    width: 4.5rem;
+    height: 4.3rem;
+    border-radius:50%;
+    font-size: 2rem;
+    font-weight: bold;
+    background: rgb(175,27,8);
+    background: linear-gradient(283deg, rgba(175,27,8,1) 24%, rgba(31,9,121,1) 75%);
+    color: white;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-out;
+    /* arreglar la transicion*/
+    
+}
+.scroll-top-btn:hover{
+    background-color: var(--main-color);
+    color:red;
+}
+
+.hidden{
+    visibility: hidden;
+    opacity: 0;
+}
+
+/********************* FIN BUTTON TOP *******************************  */
+/********************* DARK THEME BUTTON *******************************  */
+.dark-theme-btn{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    left: 1vw;
+    width: 4.5rem;
+    height: 4.3rem;
+    border-radius:50%;
+    font-size: 2rem;
+    font-weight: bold;
+    background: rgb(175,27,8);
+    background: linear-gradient(283deg, rgba(175,27,8,1) 24%, rgba(31,9,121,1) 75%);
+    color: white;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    transition: all 0.3s ease-out;
+    /* arreglar la transicion*/
+    
+}
+.dark-theme-btn:hover{
+    background-color: var(--main-color);
+    color:red;
+}
+.dark-mode{
+    background-color: black;
+    color: yellow;
 }
