@@ -21,7 +21,7 @@ export default function scrollTopButtom(btn){
         }
 
 
-        console.log(w.pageYOffset, d.documentElement.scrollTop);
+        //console.log(w.pageYOffset, d.documentElement.scrollTop);
     });
     d.addEventListener("click", e => {
         if(e.target.matches(btn)){

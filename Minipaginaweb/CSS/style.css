@@ -60,6 +60,7 @@ img{
 .panel{
     position: fixed;
     z-index: 998;
+    overflow-y: auto;
     /* esto estira el elemento en todas direcciones, toca todos los margenes */
     top: 0;
     bottom: 0;
@@ -211,3 +212,63 @@ img{
     background-color: black;
     color: white;
 }
+
+/*********************  Network Status ************************/
+.online, 
+.offline{
+    position:sticky;
+    top:0;
+    z-index: 1000;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #1b5e20;
+    color: #fff;
+}
+.offline{
+    background-color: red;
+}
+
+/*********************** FIN NETWORK STATUS ********************  */
+
+
+
+/*********************** SearchFilters INICIO ********************  */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+.card{
+    background-color: red;
+    color:yellow;
+    transition: all 0.3s ease-out;
+}
+
+.card img{
+    width: 100%;
+    height: auto;
+}
+
+.card figcaption{
+    padding: 1rem;
+}
+.filter {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
+
+/*********************** SearchFilters FIN  ********************  */
+
+/*********************** SLIDER RESPONSIVE IMG INICIO ********************  */
+.slider{
+    position:relative;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center; 
+}
+
+
+/*********************** SLIDER RESPONSIVE IMG FIN ********************  */
