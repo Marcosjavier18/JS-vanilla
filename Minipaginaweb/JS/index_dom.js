@@ -14,6 +14,7 @@ import searchFilters from "./filtro_busqueda.js";
 import draw from "./sorteo_digital.js";
 import slider from "./slider_responsive.js";
 import scrollEspia from "./scroll_espia.js";
+import smartVideo from "./video_inteligente.js";
 
 
 const d = document;
@@ -61,6 +62,8 @@ d.addEventListener("DOMContentLoaded", (e) =>{
     slider();
 
     scrollEspia();
+
+    smartVideo();
 
     });
     

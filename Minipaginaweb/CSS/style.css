@@ -387,8 +387,15 @@ img{
         right: initial;
         left: calc(4.25rem + 1vw);
     }
+    .section{
+        border: thin solid rgba(1, 15, 15, 0.057);
+    }
 
-
+    .section video{
+        width: 800px;
+        height: 800px;
+    }
 }
+
 
 /*********************** scrollspy FIN ********************  */
