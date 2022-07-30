@@ -213,7 +213,7 @@ img{
 }
 
 .dark-mode{
-    background-color: black;
+    background-color: rgba(62, 60, 60, 0.205);
     color: white;
 }
 
@@ -399,3 +399,89 @@ img{
 
 
 /*********************** scrollspy FIN ********************  */
+
+
+/****************************  ContactFORMULARIO Validations inicio  ******************************/
+
+.contact-form{
+    /* DAMOS COLORES AL CUADRO DEL FORMULARIO CUANDO SE VALIDA Y CUANDO NO SE VALIDA*/
+    --form-ok-color: #4caf50;
+    --form-error-color: #f44336;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+/* el asterisco significa TODOs, todos los elementos que son hijos directo de contact form */
+.contact-form > *{
+    padding: 0.5rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+}
+.contact-form textarea{
+    resize: none;
+}
+
+.contact-form legend,
+.contact-form-response{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea{
+    font-size: 1rem;
+    font-size: sans-serif;
+}
+
+.contact-form input[type="submit"]{
+    width: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form *::placeholder{
+    color: red;
+}
+
+
+/* este selector dice que todos los elementos que sean hijos, tengan el elemento required y el contenido sea valido o invalido.*/
+.contact-form [required]:valid{
+    border: thin solid var(--form-ok-color);
+}
+.contact-form [required]:invalid{
+    border: thin solid var(--form-error-color);
+}
+
+
+.contact-form-error {
+    margin-top: -1rem;
+    font-size: 80%;
+    background-color: red;
+    color:white;
+    transition: all 800ms ease-in-out;
+}
+.contact-form-error.is-active{
+    display: block;
+    animation: show-message 1s 1 normal ease-out both fill-mode;
+}
+.none{
+    display: none;
+}
+
+@keyframes show-message {
+    0%{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+/****************************  ContactFORMULARIO Validations  FIN ******************************/

@@ -15,6 +15,7 @@ import draw from "./sorteo_digital.js";
 import slider from "./slider_responsive.js";
 import scrollEspia from "./scroll_espia.js";
 import smartVideo from "./video_inteligente.js";
+import contactFormValidation from "./validaciones_form.js";
 
 
 const d = document;
@@ -64,6 +65,8 @@ d.addEventListener("DOMContentLoaded", (e) =>{
     scrollEspia();
 
     smartVideo();
+
+    contactFormValidation();
 
     });
     
