@@ -12,6 +12,9 @@ import webCam from "./deteccion_webcam.js";
 import getGeolocation from "./geolocalizacion.js";
 import searchFilters from "./filtro_busqueda.js";
 import draw from "./sorteo_digital.js";
+import slider from "./slider_responsive.js";
+import scrollEspia from "./scroll_espia.js";
+
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) =>{
@@ -54,6 +57,10 @@ d.addEventListener("DOMContentLoaded", (e) =>{
 
 
     draw("#winner-btn", ".player");
+
+    slider();
+
+    scrollEspia();
 
     });
     
